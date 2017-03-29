@@ -33,12 +33,37 @@ public class Ecossistema {
 		System.out.println();
 	}
 	
-	public boolean fimJogo(){
+	public static void inicioJogo(Ecossistema ecossitema) {
+		for (int i = 0; i < Main.gerarNumeroAleatorio(5); i++) {
+			Peixe p1 = new Peixe();
+			p1.add(ecossitema, p1.posicao);
+			Urso u1 = new Urso();
+			u1.add(ecossitema, u1.posicao);
+		}
+		ecossitema.verRio();
+	}
+	
+	public boolean fimJogoPeixe(){
 		for (int i = 0; i <= rio.length-1; i++) {
-			if(rio[i] != null && rio[i].getClass() == Peixe.class){
-				return false;
+			if(rio[i] != null){
+				if(rio[i].getClass() == Peixe.class){
+					return false;
+				}
 			}
 		}
 		return true;
 	}
+	
+	public boolean fimJogoUrso(){
+		for (int i = 0; i <= rio.length-1; i++) {
+			if(rio[i] != null){
+				if(rio[i].getClass() == Urso.class){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+
 }

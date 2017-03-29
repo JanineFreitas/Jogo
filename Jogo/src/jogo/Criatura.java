@@ -26,25 +26,38 @@ public class Criatura {
 	}
 
 	public boolean colidir(Ecossistema ecossitema, int posicaoAtual) {
-		int proximaPosicao = posicaoAtual+1;
+		int proximaPosicao = posicaoAtual + 1;
 		if (posicaoAtual < 5) {
-			if(ecossitema.rio[proximaPosicao] == null){
+			if (ecossitema.rio[proximaPosicao] == null) {
 				return false;
-			}else if(this.getClass() == ecossitema.rio[proximaPosicao].getClass()) {
-				if (ecossitema.fimJogo() == false && ecossitema.espacoVazio()){
+			} else if (this.getClass() == ecossitema.rio[proximaPosicao].getClass()) {
+				if (ecossitema.espacoVazio()) {
 					this.add(ecossitema, ecossitema.posicaoVazia());
 				}
 				return true;
-			} else if (ecossitema.fimJogo() == false && this.getClass() == Urso.class && ecossitema.rio[proximaPosicao].getClass() == Peixe.class) {
+			} else if (this.getClass() == Urso.class && ecossitema.rio[proximaPosicao].getClass() == Peixe.class) {
 				mover(ecossitema);
 				System.out.println("Peixe na posicao " + proximaPosicao + " morreu");
 				return true;
-			} else if (ecossitema.fimJogo() == false && this.getClass() == Peixe.class && ecossitema.rio[proximaPosicao].getClass() == Urso.class){
+			} else if (this.getClass() == Peixe.class && ecossitema.rio[proximaPosicao].getClass() == Urso.class) {
 				ecossitema.rio[posicaoAtual] = null;
 				System.out.println("Peixe na posicao " + posicaoAtual + " morreu");
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public static boolean andar(Ecossistema ecossitema, int i) {
+		boolean isColidiu = ecossitema.rio[i].colidir(ecossitema, i);
+		if(ecossitema.fimJogoPeixe() == false && ecossitema.fimJogoUrso() == false){
+			if (isColidiu == false) {
+				ecossitema.rio[i].mover(ecossitema);
+			}
+			return true;
+		} else {
+			System.out.println("Fim do jogo");
+			return false;
+		}
 	}
 }
