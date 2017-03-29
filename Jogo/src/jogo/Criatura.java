@@ -29,7 +29,7 @@ public class Criatura {
 		return false;
 	}
 
-	public static boolean andar(Ecossistema ecossitema, int i) {
+	public static boolean posicaoAdjacente(Ecossistema ecossitema, int i) {
 		boolean isColidiu = ecossitema.rio[i].colidir(ecossitema, i);
 		if(ecossitema.fimJogoPeixe() == false && ecossitema.fimJogoUrso() == false){
 			if (isColidiu == false) {

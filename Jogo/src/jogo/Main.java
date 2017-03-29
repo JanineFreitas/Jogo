@@ -13,7 +13,7 @@ public class Main {
 		while(ecossitema.fimJogoPeixe() == false && ecossitema.fimJogoUrso() == false){
 			for (int i = 0; i < ecossitema.rio.length-1; i++) {
 				if (ecossitema.rio[i] != null) {
-					if(Criatura.andar(ecossitema, i)==false){
+					if(Criatura.posicaoAdjacente(ecossitema, i)==false){
 						break;
 					}
 				} 	
