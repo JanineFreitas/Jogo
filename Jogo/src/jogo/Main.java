@@ -16,8 +16,8 @@ public class Main {
 					if(Criatura.andar(ecossitema, i)==false){
 						break;
 					}
-					ecossitema.verRio();
-				} 				
+				} 	
+				ecossitema.verRio();
 			}
 		}
 		System.out.println("Fim do jogo");
