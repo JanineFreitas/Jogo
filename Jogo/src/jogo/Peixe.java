@@ -4,6 +4,7 @@ public class Peixe extends Criatura{
 	public boolean colidir(Ecossistema ecossitema, int posicaoAtual) {
 		int proximaPosicao = posicaoAtual + 1;
 		if (posicaoAtual < 5) {
+			//PRECISO MELHORAR
 			if (ecossitema.rio[proximaPosicao] == null) {
 				return false;
 			} else if (this.getClass() == ecossitema.rio[proximaPosicao].getClass()) {
