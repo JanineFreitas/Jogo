@@ -20,6 +20,7 @@ public class Main {
 				} 				
 			}
 		}
+		System.out.println("Fim do jogo");
 		ecossitema.verRio();
 	}
 

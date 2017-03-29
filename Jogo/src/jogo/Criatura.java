@@ -56,7 +56,6 @@ public class Criatura {
 			}
 			return true;
 		} else {
-			System.out.println("Fim do jogo");
 			return false;
 		}
 	}
