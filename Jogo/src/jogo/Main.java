@@ -32,7 +32,7 @@ public class Main {
 		for (int i = 0; i < ecossitema.rio.length-1; i++) {
 			if (ecossitema.rio[i] != null) {
 				isColidiu = ecossitema.rio[i].colidir(ecossitema, i);
-				if (isColidiu == false) {
+				if (isColidiu == false && ecossitema.fimJogo() == false) {
 					ecossitema.rio[i].mover(ecossitema);
 				} 
 			}
